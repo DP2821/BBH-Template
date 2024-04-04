@@ -20,24 +20,27 @@
                 <div class="col-lg-6 text-center">
                     <img src="BBH Banner.jpg" alt="banner" style="margin-top: 10px; margin-bottom: 10px;">
                     <h4 style="color: #000; margin-top: 10px; margin-bottom: 20px;">Create your Poster</h4>
-                    
+
                     <label id="display_image_div">
                         <img name="display_image_data" id="display_image_data" src="person.png" alt="Picture"
                             width="100px" style="border-radius: 50%; background-color: lightgray; padding: 15px;">
                         <input type="file" name="browse_image" id="browse_image" class="form-control"
                             accept="image/png, image/gif, image/jpeg" style="display: none; ">
                     </label>
-                    
+
                     <input type="hidden" name="cropped_image_data" id="cropped_image_data">
                     <br>
-                    
+
                     <label onclick="start_cropping()" style="font-weight: bold;" class="mt-1">Select Your Photo</label>
-                    
-                    <input type="text" id="p_name" class="form-control mt-3" maxlength="20" required="required" placeholder="Enter Your Name">
 
-                    <input type="number" name="mobile" id="mobile" class="form-control mt-3" maxlength="10" minlength="10" required="required" placeholder="Enter Mobile Number" pattern="^[6-9]\d{9}$">
+                    <input type="text" id="p_name" class="form-control mt-3" maxlength="20" required="required"
+                        placeholder="Enter Your Name">
 
-                    <button type="button" value="poster" class="btn btn-primary mt-3 w-100 border border-0" style="background-color: #FF3434;" id="downloadBtn">Create Poster</button>
+                    <input type="number" name="mobile" id="mobile" class="form-control mt-3" maxlength="10"
+                        minlength="10" required="required" placeholder="Enter Mobile Number" pattern="^[6-9]\d{9}$">
+
+                    <button type="button" value="poster" class="btn btn-primary mt-3 w-100 border border-0"
+                        style="background-color: #FF3434;" id="downloadBtn">Create Poster</button>
                     <a href="#" id="d-btn" class="btn btn-success d-none">Download Your Post</a>
                 </div>
             </form>
@@ -153,6 +156,8 @@
                         document.body.removeChild(downloadLink);
                     };
                 };
+
+                InsertExpense();
             });
         });
 
@@ -176,25 +181,22 @@
             return canvas;
         }
 
-        $(function () {
-            $('#d-btn').click(function (e) {
-                e.preventDefault();  //stop the browser from following
+        $('#d-btn').click(function (e) {
+            e.preventDefault();  //stop the browser from following
 
-                var $url = $(this).attr('href');
+            var $url = $(this).attr('href');
 
-                var link = document.createElement('a');
-                document.body.appendChild(link);
-                link.download = '';
-                link.href = $url;
-                link.click();
+            var link = document.createElement('a');
+            document.body.appendChild(link);
+            link.download = '';
+            link.href = $url;
+            link.click();
 
-                var is_iphone = iOS();
+            var is_iphone = iOS();
 
-                if (!is_iphone) {
-                    window.location.href = window.location.href;
-                }
-
-            });
+            if (!is_iphone) {
+                window.location.href = window.location.href;
+            }
         });
 
         function iOS() {
@@ -210,6 +212,28 @@
                 || (navigator.userAgent.includes("Mac") && "ontouchend" in document)
         }
 
+        function InsertExpense() {
+
+            var URL_Main = 'https://script.google.com/macros/s/AKfycbw3Gu_ZsQHwEq20C2Cq-j1CN1U-_kH3EdcB3Tty9UdpnErmvfTyhpW0gTle3Fm9P6AxyA/exec';
+
+            var name = $("#p_name").val();
+            var mobile = $("#mobile").val();
+
+            $.ajax({
+                url: URL_Main,
+                type: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                data:
+                {
+                    name: name,
+                    mobile: mobile
+                },
+                success: function (data) { },
+                error: function (xhr, status, error) { }
+            });
+        }
     </script>
 </body>
 
