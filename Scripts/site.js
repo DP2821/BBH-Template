@@ -1,7 +1,7 @@
 $("body").on("change", "#browse_image", function (e) {
 
     window.scrollTo({
-        top: document.body.scrollHeight,
+        top: 525,
         behavior: 'smooth'
       });
 
