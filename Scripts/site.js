@@ -62,7 +62,7 @@ $("body").on("change", "#browse_image", function (e) {
 
         // Draw the main image
         var mainImage = new Image();
-        mainImage.src = '/Images/BBH Banner Main.jpg';
+        mainImage.src = './Images/BBH Banner Main.jpg';
         mainImage.onload = function () {
             ctx.drawImage(mainImage, 0, 0, canvas.width, canvas.height);
 
