@@ -19,8 +19,8 @@
 
             <form method="post" id="myform">
                 <div class="col-lg-6 text-center">
-                    <img src="./Images/BBH Banner.jpg" alt="banner" style="margin-top: 10px; margin-bottom: 10px;">
-                    <h4 style="color: #000; margin-top: 10px; margin-bottom: 20px;">Create your Poster</h4>
+                    <img src="./Images/BBH Banner.jpg" alt="banner" class="mx-1">
+                    <h4 class="mt-2 mb-3">તમારું પોસ્ટર બનાવો</h4>
 
                     <label id="display_image_div">
                         <img name="display_image_data" id="display_image_data" src="./Images/person.png" alt="Picture"
@@ -32,16 +32,16 @@
                     <input type="hidden" name="cropped_image_data" id="cropped_image_data">
                     <br>
 
-                    <label onclick="start_cropping()" style="font-weight: bold;" class="mt-1">Select Your Photo</label>
+                    <label onclick="start_cropping()" class="mt-1 fw-bold">તમારો ફોટો પસંદ કરો</label>
 
                     <input type="text" id="p_name" class="form-control mt-3" maxlength="20" required="required"
-                        placeholder="Enter Your Name">
+                        placeholder="તમારું નામ">
 
                     <input type="number" name="mobile" id="mobile" class="form-control mt-3" maxlength="10"
-                        minlength="10" required="required" placeholder="Enter Mobile Number" pattern="^[6-9]\d{9}$">
+                        minlength="10" required="required" placeholder="તમારો મોબાઈલ નંબર" pattern="^[6-9]\d{9}$">
 
                     <button type="button" value="poster" class="btn btn-primary mt-3 w-100 border border-0"
-                        style="background-color: #FF3434;" id="downloadBtn">Create Poster</button>
+                        style="background-color: #FF3434; margin-bottom: 575px;" id="downloadBtn">પોસ્ટર બનાવો</button>
                     <a href="#" id="d-btn" class="btn btn-success d-none">Download Your Post</a>
                 </div>
             </form>

@@ -1,4 +1,10 @@
 $("body").on("change", "#browse_image", function (e) {
+
+    window.scrollTo({
+        top: document.body.scrollHeight,
+        behavior: 'smooth'
+      });
+
     var files = e.target.files;
     var done = function (url) {
         $('#display_image_div').html('');
@@ -152,7 +158,7 @@ function iOS() {
 
 function InsertExpense() {
 
-    var URL_Main = 'https://script.google.com/macros/s/AKfycbw3Gu_ZsQHwEq20C2Cq-j1CN1U-_kH3EdcB3Tty9UdpnErmvfTyhpW0gTle3Fm9P6AxyA/exec';
+    var URL_Main = 'https://script.google.com/macros/s/AKfycbyPqzq1qs1zw5u07KBRyg4gFmV2vWG0hDbVLhvGD6sRFLiurB_U60W-zDUI51scrdVtaw/exec';
 
     var name = $("#p_name").val();
     var mobile = $("#mobile").val();
