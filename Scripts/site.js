@@ -84,7 +84,7 @@ $("body").on("change", "#browse_image", function (e) {
                 ctxText.font = '40px Arial'; // Set font size and type
                 ctxText.fillStyle = '#FF3434'; // Set text color
                 ctxText.textAlign = 'center'; // Set text alignment
-                ctxText.fillText($('#p_name').val(), canvas.width - 350, canvas.height - 25); // Set position of text
+                ctxText.fillText($('#p_name').val() == '' ? 'જય શ્રી રામ' : $('#p_name').val(), canvas.width - 350, canvas.height - 25); // Set position of text
 
                 // Convert canvas content to a data URL
                 var dataURL = canvas.toDataURL('image/png');
@@ -160,7 +160,7 @@ function InsertExpense() {
 
     var URL_Main = 'https://script.google.com/macros/s/AKfycbyPqzq1qs1zw5u07KBRyg4gFmV2vWG0hDbVLhvGD6sRFLiurB_U60W-zDUI51scrdVtaw/exec';
 
-    var name = $("#p_name").val();
+    var name = $('#p_name').val() == '' ? 'જય શ્રી રામ' : $('#p_name').val();
     var mobile = $("#mobile").val();
 
     $.ajax({
