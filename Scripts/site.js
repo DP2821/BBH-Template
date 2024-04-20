@@ -6,7 +6,7 @@ $('#downloadBtn').click(function () {
 $("body").on("change", "#browse_image", function (e) {
 
     window.scrollTo({
-        top: 525,
+        top: 600,
         behavior: 'smooth'
       });
 
@@ -88,15 +88,15 @@ $("body").on("change", "#browse_image", function (e) {
                 var ctxText = canvas.getContext('2d');
                 ctxText.font = '40px Arial'; // Set font size and type
                 ctxText.fillStyle = '#FF3434'; // Set text color
-                // ctxText.textAlign = 'center'; // Set text alignment
-                ctxText.fillText($('#p_name').val() == '' ? 'જય શ્રી રામ' : $('#p_name').val(), canvas.width - 325, canvas.height - 125); // Set position of text
+                ctxText.textAlign = 'center'; // Set text alignment
+                ctxText.fillText($('#p_name').val() == '' ? 'જય શ્રી રામ' : $('#p_name').val(), canvas.width - 200, canvas.height - 125); // Set position of text
 
                 // Convert canvas content to a data URL
                 var dataURL = canvas.toDataURL('image/png');
 
                 // Create a link element for downloading
                 var downloadLink = document.createElement('a');
-                downloadLink.download = $('#p_name').val() == '' ? 'જય શ્રી રામ' : $('#p_name').val() + '_BBH-Template.png'; // Set filename for downloaded image
+                downloadLink.download = 'hanuman_janmostav_invition.png'; // Set filename for downloaded image
                 downloadLink.href = dataURL;
 
                 // Trigger download

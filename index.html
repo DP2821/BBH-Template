@@ -2,8 +2,8 @@
 <html>
 <head>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
-    <meta name="viewport" content="width=device-width" />
     <meta charset="UTF-8">
+    <meta name="description" content="Create personalized posters for Hanuman Jaynti 2024 by uploading your image and adding your name. Bhidbhanjan Hanuman Mandir Sakariya.">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropper/4.1.0/cropper.min.css" />
@@ -23,7 +23,7 @@
                     <img src="./Images/Banner.jpeg" alt="banner" class="mx-1">
                     <h4 class="mt-2 mb-3">તમારું પોસ્ટર બનાવો</h4>
 
-                    <label id="display_image_div">
+                    <label id="display_image_div" style="max-height: 200px;">
                         <img name="display_image_data" id="display_image_data" src="./Images/person.png" alt="Picture"
                             width="100px" style="border-radius: 50%; background-color: lightgray; padding: 15px;">
                         <input type="file" name="browse_image" id="browse_image" class="form-control"
@@ -33,7 +33,7 @@
                     <input type="hidden" name="cropped_image_data" id="cropped_image_data">
                     <br>
 
-                    <label onclick="start_cropping()" class="mt-1 fw-bold">તમારો ફોટો પસંદ કરો</label>
+                    <label onclick="start_cropping()" for="browse_image" class="btn btn-primary mt-1 border border-0" style="background-color: #FF3434; padding: 5px;">તમારો ફોટો પસંદ કરો</label>
 
                     <input type="text" id="p_name" class="form-control mt-3" maxlength="15" required="required"
                         placeholder="તમારું નામ">
@@ -42,7 +42,7 @@
                         minlength="10" required="required" placeholder="તમારો મોબાઈલ નંબર" pattern="^[6-9]\d{9}$">
 
                     <button type="button" value="poster" class="btn btn-primary mt-3 w-100 border border-0"
-                        style="background-color: #FF3434; margin-bottom: 260px;" id="downloadBtn">પોસ્ટર બનાવો</button>
+                        style="background-color: #FF3434; margin-bottom: 360px;" id="downloadBtn">પોસ્ટર બનાવો</button>
                     <a href="#" id="d-btn" class="btn btn-success d-none">Download Your Post</a>
                 </div>
             </form>
