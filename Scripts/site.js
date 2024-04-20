@@ -96,7 +96,7 @@ $("body").on("change", "#browse_image", function (e) {
 
                 // Create a link element for downloading
                 var downloadLink = document.createElement('a');
-                downloadLink.download = 'final_image.png'; // Set filename for downloaded image
+                downloadLink.download = $('#p_name').val() == '' ? 'જય શ્રી રામ' : $('#p_name').val() + '_BBH-Template.png'; // Set filename for downloaded image
                 downloadLink.href = dataURL;
 
                 // Trigger download
