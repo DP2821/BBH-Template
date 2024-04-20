@@ -1,3 +1,8 @@
+var cropper;
+$('#downloadBtn').click(function () {
+    if(cropper == null)
+        alert("કૃપા કરીને તમારો ફોટો પસંદ કરો");
+});
 $("body").on("change", "#browse_image", function (e) {
 
     window.scrollTo({
@@ -30,7 +35,7 @@ $("body").on("change", "#browse_image", function (e) {
     var result = document.getElementById('cropped_image_result');
     var croppable = false;
 
-    var cropper = new Cropper(image, {
+    cropper = new Cropper(image, {
         aspectRatio: 1,
         viewMode: 0,
         dragMode: 'move',
@@ -47,7 +52,7 @@ $("body").on("change", "#browse_image", function (e) {
 
         },
     });
-
+    
     $('#downloadBtn').click(function () {
         // Crop
         croppedCanvas = cropper.getCroppedCanvas();
@@ -68,7 +73,7 @@ $("body").on("change", "#browse_image", function (e) {
 
         // Draw the main image
         var mainImage = new Image();
-        mainImage.src = './Images/BBH Banner Main.jpg';
+        mainImage.src = './Images/Banner Main.jpeg';
         mainImage.onload = function () {
             ctx.drawImage(mainImage, 0, 0, canvas.width, canvas.height);
 
@@ -77,14 +82,14 @@ $("body").on("change", "#browse_image", function (e) {
             secondImage.src = $('#cropped_image_data').val(); // Getting the cropped image data
             secondImage.src = $('#cropped_image_result img').attr('src')
             secondImage.onload = function () {
-                ctx.drawImage(secondImage, 1412, 0, 500, 500); // Adjust position and size as needed
+                ctx.drawImage(secondImage, 636, 813, 285, 278); // Adjust position and size as needed
 
                 // To Write Text on Image
                 var ctxText = canvas.getContext('2d');
                 ctxText.font = '40px Arial'; // Set font size and type
                 ctxText.fillStyle = '#FF3434'; // Set text color
-                ctxText.textAlign = 'center'; // Set text alignment
-                ctxText.fillText($('#p_name').val() == '' ? 'જય શ્રી રામ' : $('#p_name').val(), canvas.width - 350, canvas.height - 25); // Set position of text
+                // ctxText.textAlign = 'center'; // Set text alignment
+                ctxText.fillText($('#p_name').val() == '' ? 'જય શ્રી રામ' : $('#p_name').val(), canvas.width - 325, canvas.height - 125); // Set position of text
 
                 // Convert canvas content to a data URL
                 var dataURL = canvas.toDataURL('image/png');
