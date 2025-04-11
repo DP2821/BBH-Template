@@ -73,7 +73,7 @@ $("body").on("change", "#browse_image", function (e) {
 
         // Draw the main image
         var mainImage = new Image();
-        mainImage.src = './Images/Banner Main.jpeg';
+        mainImage.src = './Images/Banner Main-2025.jpg';
         mainImage.onload = function () {
             ctx.drawImage(mainImage, 0, 0, canvas.width, canvas.height);
 
@@ -82,21 +82,22 @@ $("body").on("change", "#browse_image", function (e) {
             secondImage.src = $('#cropped_image_data').val(); // Getting the cropped image data
             secondImage.src = $('#cropped_image_result img').attr('src')
             secondImage.onload = function () {
-                ctx.drawImage(secondImage, 636, 813, 285, 278); // Adjust position and size as needed
+                // ctx.drawImage(secondImage, X, Y, Width, Height); // Adjust position and size as needed
+                ctx.drawImage(secondImage, 642, 808, 247, 258); // Adjust position and size as needed
 
                 // To Write Text on Image
                 var ctxText = canvas.getContext('2d');
                 ctxText.font = '40px Arial'; // Set font size and type
                 ctxText.fillStyle = '#FF3434'; // Set text color
                 ctxText.textAlign = 'center'; // Set text alignment
-                ctxText.fillText($('#p_name').val() == '' ? 'જય શ્રી રામ' : $('#p_name').val(), canvas.width - 200, canvas.height - 125); // Set position of text
+                ctxText.fillText($('#p_name').val() == '' ? 'જય શ્રી રામ' : $('#p_name').val(), canvas.width - 200, canvas.height - 150); // Set position of text
 
                 // Convert canvas content to a data URL
                 var dataURL = canvas.toDataURL('image/png');
 
                 // Create a link element for downloading
                 var downloadLink = document.createElement('a');
-                downloadLink.download = 'hanuman_janmostav_invition.png'; // Set filename for downloaded image
+                downloadLink.download = 'hanuman_janmostav_invition_2025.png'; // Set filename for downloaded image
                 downloadLink.href = dataURL;
 
                 // Trigger download
@@ -163,7 +164,7 @@ function iOS() {
 
 function InsertExpense() {
 
-    var URL_Main = 'https://script.google.com/macros/s/AKfycbyPqzq1qs1zw5u07KBRyg4gFmV2vWG0hDbVLhvGD6sRFLiurB_U60W-zDUI51scrdVtaw/exec';
+    var URL_Main = 'https://script.google.com/macros/s/AKfycbyjW1jQYIqwJMJ6jNTybuaEhEoeT9a734n0y36yHlq6aiQJAMjYUVQgBay5tdUTORFpwA/exec';
 
     var name = $('#p_name').val() == '' ? 'જય શ્રી રામ' : $('#p_name').val();
     var mobile = $("#mobile").val();
