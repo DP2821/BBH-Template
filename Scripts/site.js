@@ -14,7 +14,7 @@ const POSTER_CONFIG = {
 var cropper = null;
 var finalPosterDataUrl = null;
 
-$(document).ready(function() {
+$(document).ready(function () {
 
     $('#generateBtn').click(function () {
         if (cropper == null) {
@@ -28,12 +28,12 @@ $(document).ready(function() {
         $('#generateBtn').prop('disabled', true);
 
         // Process image inside a timeout to allow UI to update the loading spinner
-        setTimeout(function() {
+        setTimeout(function () {
             generatePosterCanvas();
         }, 50);
     });
 
-    $('#downloadFinalBtn').click(function() {
+    $('#downloadFinalBtn').click(function () {
         if (finalPosterDataUrl) {
             var downloadLink = document.createElement('a');
             downloadLink.download = 'hanuman_janmostav_invitation_2026.png';
@@ -41,7 +41,7 @@ $(document).ready(function() {
             document.body.appendChild(downloadLink);
             downloadLink.click();
             document.body.removeChild(downloadLink);
-            
+
             // InsertExpense is handled automatically during generation now
         }
     });
@@ -59,7 +59,7 @@ $(document).ready(function() {
 
             // Initialize Cropper after image is applied
             var image = document.getElementById('display_image_data');
-            
+
             if (cropper) {
                 cropper.destroy();
                 cropper = null;
@@ -98,7 +98,7 @@ $(document).ready(function() {
 
 function generatePosterCanvas() {
     var result = document.getElementById('cropped_image_result');
-    
+
     // Crop
     var croppedCanvas = cropper.getCroppedCanvas();
 
@@ -124,7 +124,7 @@ function generatePosterCanvas() {
         // Draw the second image (cropped image)
         var secondImage = new Image();
         secondImage.onload = function () {
-            
+
             // Draw circular image over shadow
             ctx.drawImage(secondImage, POSTER_CONFIG.imageX, POSTER_CONFIG.imageY, POSTER_CONFIG.imageW, POSTER_CONFIG.imageH);
 
@@ -133,12 +133,12 @@ function generatePosterCanvas() {
             if (nameText === '') {
                 nameText = 'જય શ્રી રામ';
             }
-            
+
             var ctxText = canvas.getContext('2d');
             ctxText.font = POSTER_CONFIG.font;
             ctxText.fillStyle = POSTER_CONFIG.textColor;
-            ctxText.textAlign = 'center'; 
-            
+            ctxText.textAlign = 'center';
+
             // Draw text directly over the dynamic pill location
             ctxText.fillText(nameText, POSTER_CONFIG.textCenterX, POSTER_CONFIG.textY);
 
@@ -148,7 +148,7 @@ function generatePosterCanvas() {
             // Apply to preview image and reveal section
             $('#poster_preview').attr('src', finalPosterDataUrl);
             $('#previewSection').removeClass('d-none');
-            
+
             // Restore generate button state
             $('#generateBtnText').text('પોસ્ટર બનાવો');
             $('#generateSpinner').addClass('d-none');
@@ -165,7 +165,7 @@ function generatePosterCanvas() {
             InsertExpense(); // Trigger data logging upon auto-download
 
             // Add slight delay before scrolling for smooth rendering update
-            setTimeout(function() {
+            setTimeout(function () {
                 var previewOffset = $('#previewSection').offset();
                 if (previewOffset) {
                     window.scrollTo({
@@ -233,7 +233,8 @@ function iOS() {
 }
 
 function InsertExpense() {
-    var URL_Main = 'https://script.google.com/macros/s/AKfycbyjW1jQYIqwJMJ6jNTybuaEhEoeT9a734n0y36yHlq6aiQJAMjYUVQgBay5tdUTORFpwA/exec';
+    // var URL_Main = 'https://script.google.com/macros/s/AKfycbyjW1jQYIqwJMJ6jNTybuaEhEoeT9a734n0y36yHlq6aiQJAMjYUVQgBay5tdUTORFpwA/exec';
+    var URL_Main = 'https://script.google.com/macros/s/AKfycbxR9UyV1chU5MDYegzZZHEnfGL97lLcGaL4hyu1gDTZR0CDDavBj5pf8WlmabiY7ZD6-Q/exec';
     var name = $('#p_name').val().trim() || 'જય શ્રી રામ';
     var mobile = $("#mobile").val();
 
