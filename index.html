@@ -15,18 +15,73 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Gujarati:wght@600&display=swap" rel="stylesheet">
 
+    <style>
+        body {
+            background-color: #3e070c;
+            color: #f2c75c; /* Gold text */
+            font-family: 'Noto Sans Gujarati', sans-serif;
+            background-image: radial-gradient(circle at top, #4d0910, #2c0306);
+            min-height: 100vh;
+        }
+        .main-card {
+            background-color: #4f0a12; /* Slightly lighter maroon for contrast */
+            border: 2px solid #f2c75c;  /* Gold border */
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7);
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
+        img.mx-1 {
+            border: 2px solid #f2c75c;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+        .btn-theme {
+            background-color: #f2c75c !important;
+            color: #3e070c !important;
+            font-weight: bold;
+            border: none;
+            transition: all 0.2s ease-in-out;
+            box-shadow: 0 4px 10px rgba(242, 199, 92, 0.3);
+        }
+        .btn-theme:hover {
+            background-color: #ffda78 !important;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(242, 199, 92, 0.4);
+            color: #290407 !important;
+        }
+        .form-control {
+            border: 2px solid #f2c75c;
+            background-color: #fff9ed;
+            color: #3e070c;
+            font-weight: 600;
+            padding: 12px;
+        }
+        .form-control:focus {
+            box-shadow: 0 0 0 .25rem rgba(242, 199, 92, 0.5);
+            border-color: #f2c75c;
+            outline: none;
+        }
+        /* Style for preview section image */
+        #poster_preview {
+            border: 3px solid #f2c75c !important;
+            border-radius: 12px;
+        }
+    </style>
     <title>Make your Post for Hanuman Janmostav 2026</title>
 </head>
 
 <body>
-    <div class="container">
-        <div class="row" style="background-color: #ffffff;">
+    <div class="container pb-5">
+        <div class="row main-card">
             <canvas id="canvas" width="960" height="1280" hidden></canvas>
 
             <form method="post" id="myform">
                 <div class="col-lg-6 text-center">
-                    <img src="./Images/Banner-2026.jpeg" alt="banner" class="mx-1">
-                    <h4 class="mt-2 mb-3">તમારું પોસ્ટર બનાવો</h4>
+                    <img src="./Images/Banner-2026.jpeg" alt="banner" class="mx-1 mb-3">
+                    <h4 class="mt-2 mb-3 fw-bold">તમારું પોસ્ટર બનાવો</h4>
 
                     <label id="display_image_div" style="max-height: 200px;">
                         <img name="display_image_data" id="display_image_data" src="./Images/person.png" alt="Picture"
@@ -38,8 +93,8 @@
                     <input type="hidden" name="cropped_image_data" id="cropped_image_data">
                     <br>
 
-                    <label onclick="start_cropping()" for="browse_image" class="btn btn-primary mt-1 border border-0"
-                        style="background-color: #FF3434; padding: 5px;">તમારો ફોટો પસંદ કરો</label>
+                    <label onclick="start_cropping()" for="browse_image" class="btn btn-theme mt-1 w-100"
+                        style="padding: 12px;">તમારો ફોટો પસંદ કરો</label>
 
                     <input type="text" id="p_name" class="form-control mt-3" maxlength="15"
                         placeholder="તમારું નામ">
@@ -47,8 +102,8 @@
                     <input type="number" name="mobile" id="mobile" class="form-control mt-3" maxlength="10"
                         placeholder="તમારો મોબાઈલ નંબર">
 
-                    <button type="button" value="poster" class="btn btn-primary mt-3 w-100 border border-0"
-                        style="background-color: #FF3434; margin-bottom: 2rem;" id="generateBtn">
+                    <button type="button" value="poster" class="btn btn-theme mt-4 w-100"
+                        style="margin-bottom: 2rem; padding: 12px; font-size: 1.1rem;" id="generateBtn">
                         <span class="spinner-border spinner-border-sm d-none" id="generateSpinner" role="status" aria-hidden="true"></span>
                         <span id="generateBtnText">પોસ્ટર બનાવો</span>
                     </button>
@@ -61,7 +116,7 @@
                 <h4 class="mt-2 mb-3">Preview</h4>
                 <div id="cropped_image_result" style="display: none;"></div>
                 <img id="poster_preview" src="" class="img-fluid border shadow-sm mb-3" style="max-height: 500px;" alt="Poster Preview" />
-                <button type="button" class="btn btn-success w-100" id="downloadFinalBtn" style="margin-bottom: 2rem;">
+                <button type="button" class="btn btn-theme w-100 mt-2" id="downloadFinalBtn" style="margin-bottom: 2rem; padding: 12px; font-size: 1.1rem;">
                     Download Poster
                 </button>
             </div>
