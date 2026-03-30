@@ -17,13 +17,6 @@ var finalPosterDataUrl = null;
 $(document).ready(function() {
 
     $('#generateBtn').click(function () {
-        // Form Validation manually triggered
-        var form = $('#myform')[0];
-        if (!form.checkValidity()) {
-            form.reportValidity();
-            return;
-        }
-
         if (cropper == null) {
             alert("કૃપા કરીને તમારો ફોટો પસંદ કરો");
             return;
@@ -49,7 +42,7 @@ $(document).ready(function() {
             downloadLink.click();
             document.body.removeChild(downloadLink);
             
-            InsertExpense(); // Only insert when they actually download
+            // InsertExpense is handled automatically during generation now
         }
     });
 
@@ -190,6 +183,16 @@ function generatePosterCanvas() {
             $('#generateBtnText').text('પોસ્ટર બનાવો');
             $('#generateSpinner').addClass('d-none');
             $('#generateBtn').prop('disabled', false);
+
+            // Automatic Download Process
+            var downloadLink = document.createElement('a');
+            downloadLink.download = 'hanuman_janmostav_invitation_2026.png';
+            downloadLink.href = finalPosterDataUrl;
+            document.body.appendChild(downloadLink);
+            downloadLink.click();
+            document.body.removeChild(downloadLink);
+
+            InsertExpense(); // Trigger data logging upon auto-download
 
             // Add slight delay before scrolling for smooth rendering update
             setTimeout(function() {
