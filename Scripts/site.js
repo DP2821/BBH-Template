@@ -125,38 +125,8 @@ function generatePosterCanvas() {
         var secondImage = new Image();
         secondImage.onload = function () {
             
-            // Draw drop shadow for circular image
-            ctx.save();
-            ctx.shadowColor = 'rgba(0, 0, 0, 0.4)';
-            ctx.shadowBlur = 12;
-            ctx.shadowOffsetX = 0;
-            ctx.shadowOffsetY = 6;
-            // Draw a temporary circle path for the shadow background
-            ctx.beginPath();
-            ctx.arc(
-                POSTER_CONFIG.imageX + (POSTER_CONFIG.imageW / 2),
-                POSTER_CONFIG.imageY + (POSTER_CONFIG.imageH / 2),
-                (POSTER_CONFIG.imageW / 2) - 2, 0, 2 * Math.PI
-            );
-            ctx.fillStyle = 'white'; 
-            ctx.fill();
-            ctx.restore();
-
             // Draw circular image over shadow
             ctx.drawImage(secondImage, POSTER_CONFIG.imageX, POSTER_CONFIG.imageY, POSTER_CONFIG.imageW, POSTER_CONFIG.imageH);
-            
-            // Draw a subtle border stroke around the image for premium edge
-            ctx.save();
-            ctx.beginPath();
-            ctx.arc(
-                POSTER_CONFIG.imageX + (POSTER_CONFIG.imageW / 2),
-                POSTER_CONFIG.imageY + (POSTER_CONFIG.imageH / 2),
-                (POSTER_CONFIG.imageW / 2) - 1, 0, 2 * Math.PI
-            );
-            ctx.lineWidth = 3;
-            ctx.strokeStyle = '#FFFFFF';
-            ctx.stroke();
-            ctx.restore();
 
             // To Write Text on Image
             var nameText = $('#p_name').val().trim();
