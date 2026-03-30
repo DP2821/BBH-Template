@@ -1,6 +1,6 @@
 var cropper;
 $('#downloadBtn').click(function () {
-    if(cropper == null)
+    if (cropper == null)
         alert("કૃપા કરીને તમારો ફોટો પસંદ કરો");
 });
 $("body").on("change", "#browse_image", function (e) {
@@ -8,7 +8,7 @@ $("body").on("change", "#browse_image", function (e) {
     window.scrollTo({
         top: 600,
         behavior: 'smooth'
-      });
+    });
 
     var files = e.target.files;
     var done = function (url) {
@@ -52,7 +52,7 @@ $("body").on("change", "#browse_image", function (e) {
 
         },
     });
-    
+
     $('#downloadBtn').click(function () {
         // Crop
         croppedCanvas = cropper.getCroppedCanvas();
@@ -73,7 +73,7 @@ $("body").on("change", "#browse_image", function (e) {
 
         // Draw the main image
         var mainImage = new Image();
-        mainImage.src = './Images/Banner Main-2025.jpg';
+        mainImage.src = './Images/Banner Main-2026.jpeg';
         mainImage.onload = function () {
             ctx.drawImage(mainImage, 0, 0, canvas.width, canvas.height);
 
@@ -83,21 +83,21 @@ $("body").on("change", "#browse_image", function (e) {
             secondImage.src = $('#cropped_image_result img').attr('src')
             secondImage.onload = function () {
                 // ctx.drawImage(secondImage, X, Y, Width, Height); // Adjust position and size as needed
-                ctx.drawImage(secondImage, 642, 808, 247, 258); // Adjust position and size as needed
+                ctx.drawImage(secondImage, 589, 832, 272, 290); // Adjust position and size as needed
 
                 // To Write Text on Image
                 var ctxText = canvas.getContext('2d');
                 ctxText.font = '40px Arial'; // Set font size and type
                 ctxText.fillStyle = '#FF3434'; // Set text color
                 ctxText.textAlign = 'center'; // Set text alignment
-                ctxText.fillText($('#p_name').val() == '' ? 'જય શ્રી રામ' : $('#p_name').val(), canvas.width - 200, canvas.height - 150); // Set position of text
+                ctxText.fillText($('#p_name').val() == '' ? 'જય શ્રી રામ' : $('#p_name').val(), canvas.width - 235, canvas.height - 94); // Set position of text
 
                 // Convert canvas content to a data URL
                 var dataURL = canvas.toDataURL('image/png');
 
                 // Create a link element for downloading
                 var downloadLink = document.createElement('a');
-                downloadLink.download = 'hanuman_janmostav_invition_2025.png'; // Set filename for downloaded image
+                downloadLink.download = 'hanuman_janmostav_invition_2026.png'; // Set filename for downloaded image
                 downloadLink.href = dataURL;
 
                 // Trigger download
