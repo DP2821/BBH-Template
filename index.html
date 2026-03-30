@@ -11,6 +11,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropper/4.1.0/cropper.min.css" />
     <link rel="stylesheet" href="style.css" />
     <link rel="icon" type="image/x-icon" href="./Images/BBH Logo.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Gujarati:wght@600&display=swap" rel="stylesheet">
 
     <title>Make your Post for Hanuman Janmostav 2026</title>
 </head>
@@ -45,18 +48,22 @@
                         minlength="10" required="required" placeholder="તમારો મોબાઈલ નંબર" pattern="^[6-9]\d{9}$">
 
                     <button type="button" value="poster" class="btn btn-primary mt-3 w-100 border border-0"
-                        style="background-color: #FF3434; margin-bottom: 360px;" id="downloadBtn">પોસ્ટર બનાવો</button>
+                        style="background-color: #FF3434; margin-bottom: 2rem;" id="generateBtn">
+                        <span class="spinner-border spinner-border-sm d-none" id="generateSpinner" role="status" aria-hidden="true"></span>
+                        <span id="generateBtnText">પોસ્ટર બનાવો</span>
+                    </button>
                     <a href="#" id="d-btn" class="btn btn-success d-none">Download Your Post</a>
                 </div>
             </form>
 
 
-            <div class="col-lg-6 d-none text-center">
-                <label>Preview</label>
-                <div id="cropped_image_result">
-                    <img style="width: 350px;" src="./Images/person.png" />
-                </div>
-                <br>
+            <div class="col-lg-6 d-none text-center" id="previewSection">
+                <h4 class="mt-2 mb-3">Preview</h4>
+                <div id="cropped_image_result" style="display: none;"></div>
+                <img id="poster_preview" src="" class="img-fluid border shadow-sm mb-3" style="max-height: 500px;" alt="Poster Preview" />
+                <button type="button" class="btn btn-success w-100" id="downloadFinalBtn" style="margin-bottom: 2rem;">
+                    Download Poster
+                </button>
             </div>
         </div><!--  end row -->
     </div><!-- end container -->
